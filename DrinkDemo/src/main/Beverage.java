@@ -6,7 +6,7 @@ package main;
  */
 public class Beverage {
 	String name = null;
-	Boolean carbonated = null;
+	Boolean carbonated = false;
 	String description = "No description";
 	public Beverage(String drinkName, Boolean drinkCarbonated) {
 		this.name = drinkName;
