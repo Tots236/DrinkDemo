@@ -1,0 +1,33 @@
+{
+    "allDrinks": [
+        {
+            "beverageType": "juice",
+            "properties": [
+                {
+                "name": "Orange Juice",
+                "carbonated": false,
+                "fruit": "orange"
+                }
+            ]
+        },
+        {
+            "beverageType": "beer",
+            "properties": [
+                {
+                "name": "Budweiser",
+                "carbonated": true,
+                "alcohol": 5
+                }
+            ]
+        },
+        {
+            "beverageType": "soda",
+            "properties": [
+                {
+                "name": "Pepsi",
+                "carbonated": true
+                }
+            ]
+        }
+    ]
+}
