@@ -1,9 +1,12 @@
 package main;
-
+/*
+ * The Beverage class is the super class for Beer, Soda, and Juice.
+ * Provides properties used by all subclasses.
+ * Contains a dynamic description that is overridden by the subclasses.
+ */
 public class Beverage {
-	//Properties shared by all Beverages and subclasses
 	String name = null;
-	Boolean carbonated = false;
+	Boolean carbonated = null;
 	String description = "No description";
 	public Beverage(String drinkName, Boolean drinkCarbonated) {
 		this.name = drinkName;
@@ -14,16 +17,10 @@ public class Beverage {
 	/*
 	 * Default Beverage description, overridden by subclasses
 	 * as requested by documentation.
-	 * Beverage descriptions include Name/Carbonation
+	 * Beverage descriptions include just Name.
 	*/
 	public String toString() {
-		String carbonatedString = null;
-		if (carbonated) {
-			carbonatedString = "carbonated";
-		} else {
-			carbonatedString = "not carbonated";
-		}
-		return this.description = name + ", " + carbonatedString + ". ";
+		return this.description = name + ". ";
 	}
 	
 	//Getters and Setters

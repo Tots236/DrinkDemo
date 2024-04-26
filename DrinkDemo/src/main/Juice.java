@@ -1,10 +1,14 @@
 package main;
 
+/*
+ * Juice class is a subclass of Beverage.
+ * Includes fruit property and a unique description generator.
+ */
 public class Juice extends Beverage{
-	public String fruit;
+	public String fruit; //For grammatical reasons, plural form is recommended
 	public Juice(String drinkName, Boolean drinkCarbonated, String drinkFruit) {
 		super(drinkName, drinkCarbonated);
-		this.fruit = drinkFruit;
+		this.fruit = drinkFruit; 
 		this.description = this.toString();
 	}
 	
