@@ -2,23 +2,32 @@ package main;
 
 /*
  * Soda class is a subclass of Beverage.
- * No unique properties but does have a unique description generator.
+ * No unique properties but does have a unique description format.
  */
 
-public class Soda extends Beverage{
+public class Soda extends Beverage{	
 	public Soda(String drinkName, Boolean drinkCarbonated) {
 		super(drinkName, drinkCarbonated);
-		this.description = this.toString();
-	}	
-	
-	//Soda descriptions include Name/Carbonation, overrides Beverage description
-	public String toString() {
-		String carbonatedString = null;
-		if (carbonated) {
-			carbonatedString = "carbonated";
-		} else {
-			carbonatedString = "not carbonated";
-		}
-		return this.description = name + ", " + carbonatedString + ". ";
+		this.setDescription();
+		this.description = this.getDescription();
 	}
+	
+	//Getters and Setters
+	//Soda descriptions include Name/Carbonation, overrides Beverage setDescription
+	protected void setDescription() {
+		String carbonatedString = null;
+		try {
+			if (this.carbonated) {
+				carbonatedString = "carbonated";
+			} else {
+				carbonatedString = "not carbonated";
+			}
+		} catch (NullPointerException e) {
+			System.err.println("NullPointerException in Soda.toString(). Is carbonated boolean null?");
+		} catch (Exception f) {
+			System.err.println("Non-Null Exception occured in Soda.toString()");
+		}
+		this.description = this.name + ", " + carbonatedString + ". ";
+	}
+	
 }

@@ -3,7 +3,7 @@ import java.text.DecimalFormat;
 
 /*
  * Beer class is a subclass of Beverage.
- * Includes alcoholContent property and a unique description generator.
+ * Includes alcoholContent property and a unique description format.
  */
 public class Beer extends Beverage{
 	/*
@@ -16,26 +16,32 @@ public class Beer extends Beverage{
 	public Beer(String drinkName, Boolean drinkCarbonated, float drinkAlcoholContent) {
 		super(drinkName, drinkCarbonated);
 		this.alcoholContent = alcoholFormater.format(drinkAlcoholContent);
-		this.description = this.toString();
+		this.setDescription();
+		this.description = this.getDescription();
 	}
 	
-	//Beer descriptions include Name/Carbonation/AlcoholContent, overrides Beverage description
-	public String toString() {
-		String carbonatedString = null;
-		if (carbonated) {
-			carbonatedString = "carbonated";
-		} else {
-			carbonatedString = "not carbonated";
-		}
-		return this.description = name + ", " + carbonatedString + ", " + alcoholContent + "%. ";
-	}
-	
-	//Getters and Setters	
 	public String getAlcoholContent() {
 		return alcoholContent;
 	}
 	public void setAlcoholContent(float alcoholContent) {
 		this.alcoholContent = alcoholFormater.format(alcoholContent);
+		this.setDescription();
+	}
+	//Beer descriptions include Name/Carbonation/AlcoholContent, overrides Beverage description
+	protected void setDescription() {
+		String carbonatedString = null;
+		try {
+			if (carbonated) {
+				carbonatedString = "carbonated";
+			} else {
+				carbonatedString = "not carbonated";
+			}
+		} catch (NullPointerException e) {
+			System.err.println("NullPointerException in Beer.toString(). Is carbonated boolean null?");
+		} catch (Exception f) {
+			System.err.println("Non-Null Exception occured in Beer.toString()");
+		}
+		this.description = name + ", " + carbonatedString + ", " + alcoholContent + "%. ";
 	}
 	
 }
