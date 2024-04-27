@@ -8,13 +8,12 @@ package main;
 public class Soda extends Beverage{	
 	public Soda(String drinkName, Boolean drinkCarbonated) {
 		super(drinkName, drinkCarbonated);
-		this.setDescription();
-		this.description = this.getDescription();
+		this.updateDescription();
 	}
 	
 	//Getters and Setters
 	//Soda descriptions include Name/Carbonation, overrides Beverage setDescription
-	protected void setDescription() {
+	protected void updateDescription() {
 		String carbonatedString = null;
 		try {
 			if (this.carbonated) {

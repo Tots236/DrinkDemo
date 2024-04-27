@@ -11,13 +11,13 @@ public class Beer extends Beverage{
 	 * and rounded beyond that, but will not appear if 0
 	 * Ex: 5.50 = 5.5% , 5 = 5%
 	 */
-	DecimalFormat alcoholFormater = new DecimalFormat("0.##");
-	String alcoholContent;
+	protected DecimalFormat alcoholFormater = new DecimalFormat("0.##");
+	protected String alcoholContent;
+	
 	public Beer(String drinkName, Boolean drinkCarbonated, float drinkAlcoholContent) {
 		super(drinkName, drinkCarbonated);
 		this.alcoholContent = alcoholFormater.format(drinkAlcoholContent);
-		this.setDescription();
-		this.description = this.getDescription();
+		this.updateDescription();
 	}
 	
 	public String getAlcoholContent() {
@@ -25,10 +25,10 @@ public class Beer extends Beverage{
 	}
 	public void setAlcoholContent(float alcoholContent) {
 		this.alcoholContent = alcoholFormater.format(alcoholContent);
-		this.setDescription();
+		this.updateDescription();
 	}
 	//Beer descriptions include Name/Carbonation/AlcoholContent, overrides Beverage description
-	protected void setDescription() {
+	protected void updateDescription() {
 		String carbonatedString = null;
 		try {
 			if (carbonated) {

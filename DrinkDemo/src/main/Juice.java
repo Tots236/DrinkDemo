@@ -5,12 +5,13 @@ package main;
  * Includes fruit property and a unique description format.
  */
 public class Juice extends Beverage{
-	public String fruit; //For grammatical reasons, plural form is recommended
+	protected String fruit; 
+	//For grammatical reasons, fruit name should be plural. (apples vs apple)
+	
 	public Juice(String drinkName, Boolean drinkCarbonated, String drinkFruit) {
 		super(drinkName, drinkCarbonated);
 		this.fruit = drinkFruit; 
-		this.setDescription();
-		this.description = this.getDescription();
+		this.updateDescription();
 	}
 	
 	//Getters and Setters
@@ -19,10 +20,10 @@ public class Juice extends Beverage{
 	}
 	public void setFruit(String fruit) {
 		this.fruit = fruit;
-		this.setDescription();
+		this.updateDescription();
 	}
 	//Juice descriptions include Name/Carbonation/FruitMadeFrom, overrides Beverage setDescription
-	protected void setDescription() {
+	protected void updateDescription() {
 		String carbonatedString = null;
 		try {
 			if (carbonated) {

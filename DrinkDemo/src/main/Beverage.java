@@ -5,15 +5,15 @@ package main;
  * Contains a dynamic description that is overridden by the subclasses.
  */
 public class Beverage {
-	String name = null;
-	Boolean carbonated = false;
+	protected String name = null;
+	protected Boolean carbonated = false;
 	protected String description = "No description";
+	
 	public Beverage(String drinkName, Boolean drinkCarbonated) {
 		this.name = drinkName;
 		this.carbonated = drinkCarbonated;
-		this.setDescription(); 
+		this.updateDescription(); 
 		//Updates description when object is created or updated via Setter
-		this.description = this.getDescription();
 	}
 	
 	//Getters and Setters
@@ -22,14 +22,14 @@ public class Beverage {
 	}
 	public void setName(String drinkName) {
 		this.name = drinkName;
-		this.setDescription();
+		this.updateDescription();
 	}
 	public Boolean getCarbonated() {
 		return carbonated;
 	}
 	public void setCarbonated(Boolean drinkCarbonated) {
 		this.carbonated = drinkCarbonated;
-		this.setDescription();
+		this.updateDescription();
 	}
 	public String getDescription() {
 		return description;
@@ -40,7 +40,7 @@ public class Beverage {
 	 * Is 'protected' and can only be accessed by class + subclasses.
 	 * Beverage descriptions include just Name to differentiate.
 	*/
-	protected void setDescription() {
+	protected void updateDescription() {
 		this.description = this.name + ". ";
 	}	
 }

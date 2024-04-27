@@ -15,6 +15,7 @@ public class DrinkDemo {
 		for (Beverage element: theMenu) {
 			System.out.print(element.getDescription());
 		}
+		//Prints Beverage array on one line
 		
 	}
 }
